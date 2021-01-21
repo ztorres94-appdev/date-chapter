@@ -49,9 +49,10 @@ end
 
 
 describe "date_monday.rb" do
-  it "should output 'Is today Monday? false', when today is not Monday", points: 1 do
+  it "should output 'Is today Monday? true', when today is Monday", points: 1 do
     # Set today's date to Monday- 2020-06-29
     allow(Date).to receive(:today).and_return Date.new(2020,06,29)
+    allow(Time).to receive(:now).and_return Time.new(2020,06,29)
     
 
     expect { require_relative '../../date_monday' }.to output(/Is today Monday\? true/).to_stdout
@@ -66,6 +67,7 @@ describe "date_monday.rb" do
 
     # Set today's date to Wednesday- 2020-07-01
     allow(Date).to receive(:today).and_return Date.new(2020,07,01)
+    allow(Time).to receive(:now).and_return Time.new(2020,07,01)
     
 
     expect { require_relative '../../date_monday' }.to output(/Is today Monday\? false/).to_stdout
