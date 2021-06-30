@@ -23,7 +23,7 @@ describe "date_math.rb" do
     output = with_captured_stdout { require_relative('../../date_math')} 
     output = "empty" if output.empty? 
     expect(output.match?(/Ruby is 1 days old/i)).to be(true),
-      "Expected output to be 'Ruby is 1 days old'i, but was #{output}."
+      "Expected output to be 'Ruby is 1 days old', but was #{output}."
   
   end
 end
