@@ -4,7 +4,6 @@ describe "date_math.rb" do
     # Set today's date to 1995-12-22
     allow(Date).to receive(:today).and_return Date.new(2020,07,1)
     
-    # expect { require_relative '../../date_math' }.to output(/Ruby is 8959 days old/).to_stdout
     output = with_captured_stdout { require_relative('../../date_math')} 
     output = "empty" if output.empty? 
     expect(output.match?(/Ruby is 8959 days old/i)).to be(true),
@@ -21,7 +20,6 @@ describe "date_math.rb" do
     # Set today's date to 1995-12-22
     allow(Date).to receive(:today).and_return Date.new(1995,12,22)
     
-    # expect { require_relative '../../date_math' }.to output(/Ruby is 1 days old/).to_stdout
     output = with_captured_stdout { require_relative('../../date_math')} 
     output = "empty" if output.empty? 
     expect(output.match?(/Ruby is 1 days old/i)).to be(true),
@@ -36,7 +34,6 @@ describe "date_formatted.rb" do
     # Set today's date to 2020-07-01
     allow(Date).to receive(:today).and_return Date.new(2020,07,01)
 
-    # expect { require_relative '../../date_formatted' }.to output(/The year is: 2020, the calendar day is: 1, and the month is: 7/).to_stdout
     output = with_captured_stdout { require_relative('../../date_formatted')} 
     output = "empty" if output.empty? 
     expect(output.match?(/The year is: 2020, the calendar day is: 1, and the month is: 7/i)).to be(true),
@@ -54,7 +51,6 @@ describe "date_formatted.rb" do
     # Set today's date to Monday- 2020-06-29
     allow(Date).to receive(:today).and_return Date.new(2020,06,29)
     
-    # expect { require_relative '../../date_formatted' }.to output(/The year is: 2020, the calendar day is: 29, and the month is: 6/).to_stdout
     output = with_captured_stdout { require_relative('../../date_formatted')} 
     output = "empty" if output.empty? 
     expect(output.match?(/The year is: 2020, the calendar day is: 29, and the month is: 6/i)).to be(true),
@@ -69,11 +65,10 @@ describe "date_monday.rb" do
     allow(Date).to receive(:today).and_return Date.new(2020,06,29)
     allow(Time).to receive(:now).and_return Time.new(2020,06,29)
     
-    # expect { require_relative '../../date_monday' }.to output(/Is today Monday\? true/).to_stdout
     output = with_captured_stdout { require_relative('../../date_monday')} 
     output = "empty" if output.empty? 
     expect(output.match?(/Is today Monday\? true/i)).to be(true),
-      "Expected output to be 'Is today Monday\? true', but was #{output}."
+      "Expected output to be 'Is today Monday? true', but was #{output}."
   end
 end
 
@@ -90,9 +85,8 @@ describe "date_monday.rb" do
     output = with_captured_stdout { require_relative('../../date_monday')} 
     output = "empty" if output.empty? 
     expect(output.match?(/Is today Monday\? false/i)).to be(true),
-      "Expected output to be 'Is today Monday\? false', but was #{output}."
+      "Expected output to be 'Is today Monday? false', but was #{output}."
 
-    # expect { require_relative '../../date_monday' }.to output(/Is today Monday\? false/).to_stdout
   end
 end
 
