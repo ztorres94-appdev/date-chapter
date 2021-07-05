@@ -8,3 +8,7 @@
 # 
 # if today is not Monday.
 
+require "date"
+
+p "Is today Monday? #{Date.today.monday?}"
+
